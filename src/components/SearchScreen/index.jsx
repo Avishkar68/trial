@@ -1,27 +1,36 @@
-import React, { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
-import Header from './Header';
-import SearchData from './searchData/index';
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import Header from "./Header";
+import SearchData from "./searchData/index";
 
-const SearchScreen = ({ searchTerm, googleData }) => {
-  const navigate = useNavigate()
-  console.log("Search screen ",googleData);
+const SearchScreen = ({ searchTerm, googleData, loading, error }) => {
+  const navigate = useNavigate();
+  console.log("Search screen ", googleData);
 
   useEffect(() => {
     if (searchTerm === "") {
-      navigate("/")
+      navigate("/");
     }
-  }, [searchTerm])
+  }, [searchTerm, navigate]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
   return (
     <>
-    <Header searchTerm={searchTerm}/>
-      <div className='container'>
-        <div className='row'>
+      <Header searchTerm={searchTerm} />
+      <div className="container">
+        <div className="row">
           <SearchData googleData={googleData} />
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
 export default SearchScreen;
