@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Header from './Header';
+import SearchData from './searchData/index';
 
 const SearchScreen = ({ searchTerm, googleData }) => {
   const navigate = useNavigate()
-  console.log(googleData);
+  console.log("Search screen ",googleData);
 
   useEffect(() => {
     if (searchTerm === "") {
@@ -16,9 +17,7 @@ const SearchScreen = ({ searchTerm, googleData }) => {
     <Header searchTerm={searchTerm}/>
       <div className='container'>
         <div className='row'>
-          <div className='col-md-12'>
-            <h1>Search Screen : {searchTerm}</h1>
-          </div>
+          <SearchData googleData={googleData} />
         </div>
       </div>
     </>
