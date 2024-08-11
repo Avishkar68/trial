@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Header from "./Header";
 import SearchData from "./searchData/index";
 
-const SearchScreen = ({ searchTerm, googleData, loading, error }) => {
+const SearchScreen = ({ searchTerm, googleData, loading, error , openVoiceSearch ,setSearch }) => {
   const navigate = useNavigate();
   console.log("Search screen ", googleData);
 
@@ -23,7 +23,7 @@ const SearchScreen = ({ searchTerm, googleData, loading, error }) => {
 
   return (
     <>
-      <Header searchTerm={searchTerm} />
+      <Header openVoiceSearch={openVoiceSearch}  searchTerm={searchTerm} setSearch={setSearch} />
       <div className="container">
         <div className="row">
           <SearchData googleData={googleData} />

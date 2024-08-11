@@ -2,11 +2,11 @@ import React from 'react'
 import SearchHeader from './SearchHeader';
 import SearchSubHeader from './SearchSubHeader';
 
-const Header = ({searchTerm}) => {
+const Header = ({searchTerm , openVoiceSearch, setSearch}) => {
     return (
         <>
-            <SearchHeader searchTerm={searchTerm}/>
-            <SearchSubHeader/>
+            <SearchHeader openVoiceSearch={openVoiceSearch} searchTerm={searchTerm} setSearch={setSearch}/>
+            <SearchSubHeader/>  
         </>
     )
 }

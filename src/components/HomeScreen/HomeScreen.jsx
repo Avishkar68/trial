@@ -1,7 +1,7 @@
 import React, { useState, useSyncExternalStore } from "react";
 import { useNavigate } from "react-router-dom";
 
-const HomeScreen = ({setSearch}) => {
+const HomeScreen = ({setSearch , openVoiceSearch}) => {
   const navigate = useNavigate()
   const [input, setinput] = useState("");
   const handleSubmit = (e) => {
@@ -43,8 +43,8 @@ const HomeScreen = ({setSearch}) => {
               />
             </form>
             {input ? <i className="fa fa-times mx-1" style={{cursor:"pointer"}} onClick={clearInput}></i> : null}
-            <button type="buton" className="btn">
-              <i className="fa fa-microphone mx-1"></i>
+            <button type="buton" onClick={openVoiceSearch} className="btn">
+              <i className="fa fa-microphone mx-1" ></i>
             </button>
           </div>
           <div className="btns mx-auto text-center">
